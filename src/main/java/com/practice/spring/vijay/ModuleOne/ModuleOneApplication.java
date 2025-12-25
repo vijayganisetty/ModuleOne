@@ -1,5 +1,6 @@
 package com.practice.spring.vijay.ModuleOne;
 
+import com.practice.spring.vijay.ModuleOne.homework.CakeBaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -36,23 +37,29 @@ public class ModuleOneApplication implements CommandLineRunner {
 		SpringApplication.run(ModuleOneApplication.class, args);
 	}
 
+	@Autowired
+	CakeBaker cakeBaker;
+
 	@Override
 	public void run(String... args) throws Exception {
 
-		System.out.println(paymentService.hashCode());
-		paymentService.pay();
-
-		notificationService.send("hello");
-
-		mailNotification.send("hai....");
-
-		for(var service: notificationServiceMap.entrySet()){
-
-			System.out.println(service.getKey());
-			service.getValue().send("Sending.....");
+//		System.out.println(paymentService.hashCode());
+//		paymentService.pay();
+//
+//		notificationService.send("hello");
+//
+//		mailNotification.send("hai....");
 
 
-		}
+		cakeBaker.bakeCake();
+//
+//		for(var service: notificationServiceMap.entrySet()){
+//
+//			System.out.println(service.getKey());
+//			service.getValue().send("Sending.....");
+//
+//
+//		}
 
 
 	}
